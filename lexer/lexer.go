@@ -68,12 +68,12 @@ func (l *Lexer) NextToken() token.Token {
 
 	l.readChar()
 	return tok
-	}
+}
 
 // Skips over whitespaces AND new lines.
 func (l *Lexer) skipWhitespace() {
 	for l.ch == ' ' || l.ch == '\t' || l.ch == '\n' || l.ch == '\r' {
-	l.readChar()
+		l.readChar()
 	}
 }
 
