@@ -85,6 +85,15 @@ func newToken(tokenType token.TokenType, ch byte) token.Token {
 	return token.Token{Type: tokenType, Literal: string(ch)}
 }
 
+// this is called when a character is not a letter, checks if its a number and returns token
+func (l *Lexer) readNumber() string {
+	position := l.position
+	for isDigit(l.ch) {
+		l.readChar()
+	}
+	return l.input[position:l.position]
+}
+
 // checks if it's a Latin digit between 0 and 9 and returns true/false
 func isDigit(ch byte) bool {
 	return '0' <= ch && ch <= '9'
