@@ -84,3 +84,8 @@ func isLetter(ch byte) bool {
 func newToken(tokenType token.TokenType, ch byte) token.Token {
 	return token.Token{Type: tokenType, Literal: string(ch)}
 }
+
+// checks if it's a Latin digit between 0 and 9 and returns true/false
+func isDigit(ch byte) bool {
+	return '0' <= ch && ch <= '9'
+}
