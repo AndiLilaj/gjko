@@ -77,6 +77,7 @@ func (l *Lexer) readIdentifier() string {
 	return l.input[position:l.position]
 }
 
+/* Other programming languages even allow ! and ? in identifiers. If youwant to allow that too, this is the place to sneak it in. */
 func isLetter(ch byte) bool {
 	return 'a' <= ch && ch <= 'z' || 'A' <= ch && ch <= 'Z' || ch == '_'
 }
