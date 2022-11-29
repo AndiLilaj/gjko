@@ -16,6 +16,12 @@ func TestNextToken(t *testing.T) {
 	!-/*5;
 	5< 10>5;`
 
+	/* Me tha nje shok... konkretisht si nje "reviewer"
+	qe kodi me siper eshte pa kuptim s'duhet te kete kuptim,
+	nuk eshte puna e lexerit te kete kuptim, lexeri duhet thjesht te kthej stringun
+	input ne Tokena dhe te dalloj mes numrave dhe operatorve etj, ne "1+2=5" mjafton
+	qe kupton qe {5,1} jane TokenType
+	INT, {+} eshte operatori PLUS dhe {=} ASSIGN, jo te dalloj errore */
 
 	tests := []struct {
 		expectedType    token.TokenType
