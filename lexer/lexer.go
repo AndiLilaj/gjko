@@ -32,6 +32,18 @@ func (l *Lexer) NextToken() token.Token {
 	l.skipWhitespace()
 
 	switch l.ch {
+	case '-':
+		tok = newToken(token.MINUS, l.ch)
+	case '!':
+		tok = newToken(token.XLAM, l.ch)
+	case '/':
+		tok = newToken(token.SLASH, l.ch)
+	case '*':
+		tok = newToken(token.ASTER, l.ch)
+	case '<':
+		tok = newToken(token.LESST, l.ch)
+	case '>':
+		tok = newToken(token.GREATT, l.ch)
 	case '=':
 		tok = newToken(token.ASSIGN, l.ch)
 	case ';':
