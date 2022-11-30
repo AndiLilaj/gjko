@@ -44,7 +44,14 @@ func (l *Lexer) NextToken() token.Token {
 	case '-':
 		tok = newToken(token.MINUS, l.ch)
 	case '!':
-		tok = newToken(token.XLAM, l.ch)
+		if l.peekChar() == '=' {
+			ch := l.ch
+			l.readChar()
+			literal := string(ch) + string(l.ch)
+			tok = token.Token{Type: token.NOTEQ, Literal: literal}
+		} else {
+			tok = newToken(token.XLAM, l.ch)
+		}
 	case '/':
 		tok = newToken(token.SLASH, l.ch)
 	case '*':
