@@ -25,6 +25,15 @@ func (l *Lexer) readChar() {
 	l.readPosition += 1
 }
 
+// checks if there is and what character is in front and if there is one returns the char at that readPosition (which is position+1)
+func (l *Lexer) peekChar() byte {
+	if l.readPosition >= len(l.input) {
+		return 0
+	} else {
+		return l.input[l.readPosition]
+	}
+}
+
 func (l *Lexer) NextToken() token.Token {
 
 	var tok token.Token
