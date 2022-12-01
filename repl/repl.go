@@ -10,6 +10,10 @@ import (
 
 const PROMT = ">> "
 
+//starts lexer
+/* line takes line of input text, with l it creates
+instance of lexer.New() and print tokens and a copy of
+the literal until it encounters the EOF*/
 func Start(in io.Reader, out io.Writer) {
 	scanner := bufio.NewScanner(in)
 
